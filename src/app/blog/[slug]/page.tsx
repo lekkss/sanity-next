@@ -6,7 +6,7 @@ import BlogPost from "./components/BlogPost";
 import NavBar from "@/components/layout/NavBar";
 
 async function getPost(slug: string): Promise<SanityPost> {
-  return client.fetch(fetchPostBySlugQuery, { slug: { current: slug } });
+  return client.fetch(fetchPostBySlugQuery, { slug });
 }
 
 export default async function SingleBlogPostPage({
@@ -25,9 +25,11 @@ export default async function SingleBlogPostPage({
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50">
       <NavBar />
-      <BlogPost post={post} />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <BlogPost post={post} />
+      </div>
     </div>
   );
 }
