@@ -3,6 +3,7 @@ import { client } from "@/sanity/lib/client";
 import { SanityPost } from "../types";
 import { fetchPostBySlugQuery } from "@/lib/sanity-queries";
 import BlogPost from "./components/BlogPost";
+import NavBar from "@/components/layout/NavBar";
 
 async function getPost(slug: string): Promise<SanityPost> {
   return client.fetch(fetchPostBySlugQuery, { slug: { current: slug } });
@@ -23,5 +24,10 @@ export default async function SingleBlogPostPage({
     );
   }
 
-  return <BlogPost post={post} />;
+  return (
+    <div className="min-h-screen bg-gray-50 py-12">
+      <NavBar />
+      <BlogPost post={post} />
+    </div>
+  );
 }

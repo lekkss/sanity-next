@@ -3,6 +3,7 @@ import { client } from "@/sanity/lib/client";
 import BlogCard from "./components/BlogCard";
 import { PostPreview } from "./types";
 import { fetchPostQuery } from "@/lib/sanity-queries";
+import NavBar from "@/components/layout/NavBar";
 
 async function getPosts(): Promise<PostPreview[]> {
   return client.fetch(fetchPostQuery);
@@ -13,6 +14,7 @@ const BlogPage = async () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
+      <NavBar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl mb-4">
