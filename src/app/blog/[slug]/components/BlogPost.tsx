@@ -14,10 +14,18 @@ interface Category {
 const components: PortableTextComponents = {
   block: {
     h4: ({ children }) => (
-      <h4 className="text-2xl font-bold text-gray-900 mt-8 mb-4">{children}</h4>
+      <h4 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+        {typeof children === "string"
+          ? children.replace(/'/g, "&apos;")
+          : children}
+      </h4>
     ),
     normal: ({ children }) => (
-      <p className="text-gray-700 leading-relaxed mb-4">{children}</p>
+      <p className="text-gray-700 leading-relaxed mb-4">
+        {typeof children === "string"
+          ? children.replace(/'/g, "&apos;")
+          : children}
+      </p>
     ),
   },
   list: {
@@ -33,10 +41,18 @@ const components: PortableTextComponents = {
     ),
   },
   marks: {
-    strong: ({ children }) => <strong className="font-bold">{children}</strong>,
+    strong: ({ children }) => (
+      <strong className="font-bold">
+        {typeof children === "string"
+          ? children.replace(/'/g, "&apos;")
+          : children}
+      </strong>
+    ),
     code: ({ children }) => (
       <code className="bg-gray-100 rounded px-1 py-0.5 font-mono text-sm">
-        {children}
+        {typeof children === "string"
+          ? children.replace(/'/g, "&apos;")
+          : children}
       </code>
     ),
   },
