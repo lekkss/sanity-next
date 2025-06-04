@@ -11,6 +11,7 @@ interface BlogCardProps {
 }
 
 const BlogCard = ({ post }: BlogCardProps) => {
+  console.log(post);
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}

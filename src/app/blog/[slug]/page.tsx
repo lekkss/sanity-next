@@ -4,18 +4,16 @@ import { SanityPost } from "../types";
 import { fetchPostBySlugQuery } from "@/lib/sanity-queries";
 import BlogPost from "./components/BlogPost";
 
-interface Props {
-  params: {
-    slug: string;
-  };
-}
-
 async function getPost(slug: string): Promise<SanityPost> {
-  return client.fetch(fetchPostBySlugQuery, { slug });
+  return client.fetch(fetchPostBySlugQuery, { slug: { current: slug } });
 }
 
-const SingleBlogPostPage = async ({ params }: Props) => {
-  const post = await getPost(params.slug);
+export default async function SingleBlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const post = await getPost((await params).slug);
 
   if (!post) {
     return (
@@ -26,6 +24,4 @@ const SingleBlogPostPage = async ({ params }: Props) => {
   }
 
   return <BlogPost post={post} />;
-};
-
-export default SingleBlogPostPage;
+}
