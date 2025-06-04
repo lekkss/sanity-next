@@ -94,9 +94,10 @@ const About = () => {
             <motion.div className="space-y-6" variants={itemVariants}>
               <h2 className="text-3xl font-bold text-gray-900">Our Mission</h2>
               <p className="text-lg text-gray-600">
-                We're on a mission to revolutionize the financial technology
-                landscape by creating secure, efficient, and accessible
-                solutions that empower businesses to thrive in the digital age.
+                We&apos;re on a mission to revolutionize the financial
+                technology landscape by creating secure, efficient, and
+                accessible solutions that empower businesses to thrive in the
+                digital age.
               </p>
               <p className="text-lg text-gray-600">
                 Our commitment to innovation and excellence drives us to

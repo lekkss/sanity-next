@@ -17,7 +17,7 @@ const testimonials = [
   },
   {
     quote:
-      "Best fintech solution we've implemented. The support team is exceptional.",
+      "Best fintech solution we&apos;ve implemented. The support team is exceptional.",
     author: "Emma Rodriguez",
     role: "CEO, StartupX",
   },
@@ -93,7 +93,7 @@ const Testimonials = () => {
                   delay: index * 0.1,
                 }}
               >
-                "
+                &quot;
               </motion.div>
               <motion.p
                 className="text-gray-600 mb-6 italic"
