@@ -4,52 +4,17 @@ import { SanityPost } from "../types";
 import { fetchPostBySlugQuery } from "@/lib/sanity-queries";
 import BlogPost from "./components/BlogPost";
 import NavBar from "@/components/layout/NavBar";
-import { Metadata } from "next";
 
 async function getPost(slug: string): Promise<SanityPost> {
   return client.fetch(fetchPostBySlugQuery, { slug });
 }
 
-export async function generateMetadata({
+export default async function SingleBlogPostPage({
   params,
 }: {
-  params: { slug: string };
-}): Promise<Metadata> {
-  const post = await getPost(params.slug);
-
-  if (!post) {
-    return {
-      title: "Post Not Found",
-      description: "The requested blog post could not be found.",
-    };
-  }
-
-  return {
-    title: post.title,
-    description: post.excerpt || post.title,
-    openGraph: {
-      title: post.title,
-      description: post.excerpt || post.title,
-      type: "article",
-      publishedTime: post.publishedAt,
-      authors: [post.author?.name || "Afolabi Oluwasegun"],
-      tags: post.categories?.map((category) => category.title) || [],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt || post.title,
-    },
-  };
-}
-
-type Props = {
-  params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export default async function SingleBlogPostPage({ params }: Props) {
-  const post = await getPost(params.slug);
+  params: Promise<{ slug: string }>;
+}) {
+  const post = await getPost((await params).slug);
 
   if (!post) {
     return (
