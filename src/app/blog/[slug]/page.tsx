@@ -43,11 +43,12 @@ export async function generateMetadata({
   };
 }
 
-export default async function SingleBlogPostPage({
-  params,
-}: {
+type Props = {
   params: { slug: string };
-}) {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export default async function SingleBlogPostPage({ params }: Props) {
   const post = await getPost(params.slug);
 
   if (!post) {
