@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import NavBar from "@/components/layout/NavBar";
 
 const teamMembers = [
   {
@@ -55,7 +54,6 @@ const itemVariants = {
 const About = () => {
   return (
     <div className="min-h-screen bg-white">
-      <NavBar />
       {/* Hero Section */}
       <motion.section
         className="relative py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white"

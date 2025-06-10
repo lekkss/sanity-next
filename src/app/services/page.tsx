@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import NavBar from "@/components/layout/NavBar";
 import { motion } from "framer-motion";
 
 const services = [
@@ -95,8 +94,6 @@ const pricingPlans = [
 const Services = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      <NavBar />
-
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-r from-blue-600 to-indigo-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
