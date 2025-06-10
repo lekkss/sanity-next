@@ -2,6 +2,7 @@ export const fetchPostQuery = `*[_type == "post"] {
   _id,
   title,
   slug,
+  excerpt,
   body,
   mainImage{
             asset->{
@@ -25,6 +26,7 @@ export const fetchPostBySlugQuery = `*[_type == "post" && slug.current == $slug]
   _id,
   title,
   slug,
+  excerpt,
   body,
   mainImage{
     asset->{

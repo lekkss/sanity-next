@@ -45,6 +45,7 @@ export interface SanityPost {
   slug: {
     current: string;
   };
+  excerpt?: string;
   author?: SanityAuthor;
   mainImage?: SanityImage;
   categories?: SanityCategory[];

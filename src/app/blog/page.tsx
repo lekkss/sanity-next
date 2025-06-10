@@ -4,6 +4,18 @@ import BlogCard from "./components/BlogCard";
 import { PostPreview } from "./types";
 import { fetchPostQuery } from "@/lib/sanity-queries";
 import NavBar from "@/components/layout/NavBar";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog | Tech Insights & Development",
+  description:
+    "Explore our collection of articles about web development, React, Next.js, and technology trends.",
+  openGraph: {
+    title: "Blog | Tech Insights & Development",
+    description:
+      "Explore our collection of articles about web development, React, Next.js, and technology trends.",
+  },
+};
 
 async function getPosts(): Promise<PostPreview[]> {
   return client.fetch(fetchPostQuery);
